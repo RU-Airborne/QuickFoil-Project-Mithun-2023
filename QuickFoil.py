@@ -4,6 +4,7 @@ from aerosandbox import XFoil, Airfoil
 import numpy as np
 import pandas as pd
 from pyfiglet import Figlet
+import re
 
 def get_airfoils():
     airfoils = []
@@ -60,9 +61,11 @@ def get_alphas():
 
 def get_optimizer():
     while True:
-        optimizer = input("Optimize for: ").upper()
-        if optimizer in ['CL', 'CD', 'CDP', 'CL/CD', 'CM', 'CPMIN']:
-            return optimizer
+        optimizer = input("Optimize for: ")
+        optimizer_options = ['CL', 'CD', 'CDp', 'CL/CD', 'CM', 'Cpmin']
+        for option in optimizer_options:
+            if matches := re.search(option, optimizer, re.IGNORECASE):
+                return option
         
 def get_fileName():
     FileName = input("File Name: ")
@@ -93,7 +96,7 @@ def write_excel(airfoils, data, file_name='SimpFoil_Run',optimizer='CL'):
     match optimizer:
         case 'CL' | 'CL/CD':
             reverse_sort = True
-        case 'CD' | 'CDP' | 'CM' | 'CPMIN':
+        case 'CD' | 'CDp' | 'CM' | 'Cpmin':
             reverse_sort = False
 
     for i in range(len(data[0]['alpha'])):
