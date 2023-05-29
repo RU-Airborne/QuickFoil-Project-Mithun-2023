@@ -12,11 +12,7 @@ To run the program, download the contents of this repo and XFoil. This program a
  
 
  Current Known Issues:
- 1) In the sequence of inputting the airfoils, typing an invalid airfoil and continuing the program will raise an error.
- 2) The logic for the inputs that construct the alpha range (First Alpha, Last Alpha, Alpha Increment) is weird. Might yell at you even if you follow the rules
- 3) Currently, the max iterations are set to 1000; this should be plenty but high angles of attack might raise an Index error if some solutions are unconverted. The option to change max iterations will be added in the next version.
- 4) Currently, if an Excel file already exists with the requested FileName, data will not be written on that Excel file. So the user must not have the Excel file created before running the program. This will be changed in the next version.
- 5) The program runs really well for naca 4 digits, but some airfoils in the UIUC website can be problematic. Check the geometry of airfoils from UIUC database to ensure a smooth XFoil run. 
+ 1) The program runs really well for naca 4 digits, but some airfoils in the UIUC website can be problematic. Check the geometry of airfoils from UIUC database to ensure a smooth XFoil run. 
 
  Future Improvements:
  1) Toggle viscous/inviscid
