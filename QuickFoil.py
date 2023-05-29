@@ -80,11 +80,9 @@ class QuickFoil:
 def main():
     airfoils = [
         "naca6409",
-        "naca4412",]
-        # "s4320",
-        # "s4110",]
-        # "sa7038",
-        # "s7075",
+        "naca4412", 
+        "sa7038",
+        ]
         # "naca4415",
         # "naca2410",
         # "naca2410",
@@ -96,15 +94,16 @@ def main():
         # "naca1410",
         # "naca1412",]
     
-    Re = 500000.0
-    Mach = 0.0
-    alphas = np.arange(-5, 15, 0.5)
+    Re = 350000
+    Mach = 0.05
+    alphas = np.arange(-2, 2, 1)
     sort_by = "CL"
+    fileName = 'SampleQuickFoilRun'
     qf = QuickFoil(airfoils, Re=Re, Mach=Mach, alphas=alphas, sort_by=sort_by)
 
     data = qf.run_xfoil()
    
-    qf.write_excel(file_name="test")
+    qf.write_excel(file_name=fileName)
 
 if __name__ == '__main__':
     main()
