@@ -61,7 +61,7 @@ def get_alphas():
 def get_optimizer():
     while True:
         optimizer = input("Optimize for: ").upper()
-        if optimizer in ['CL', 'CD', 'CDp', 'CL/CD', 'CM', 'Cpmin']:
+        if optimizer in ['CL', 'CD', 'CDP', 'CL/CD', 'CM', 'CPMIN']:
             return optimizer
         
 def get_fileName():
@@ -93,7 +93,7 @@ def write_excel(airfoils, data, file_name='SimpFoil_Run',optimizer='CL'):
     match optimizer:
         case 'CL' | 'CL/CD':
             reverse_sort = True
-        case 'CD' | 'CDp' | 'CM' | 'Cpmin':
+        case 'CD' | 'CDP' | 'CM' | 'CPMIN':
             reverse_sort = False
 
     for i in range(len(data[0]['alpha'])):
